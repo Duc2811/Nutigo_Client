@@ -33,10 +33,6 @@ import ORDER_VI from './vn/myOrder.json'
 
 import COMPARE_EN from './en/compare.json'
 import COMPARE_VI from './vn/compare.json'
-
-import LUCKYWHEEL_EN from './en/luckyWheel.json'
-import LUCKYWHEEL_VI from './vn/luckyWheel.json'
-
 export const locales = {
     en: 'English',
     vi: 'Tiếng Việt',
@@ -60,7 +56,7 @@ export const resources = {
         productCart: PRODUCTCARD_EN,
         order: ORDER_EN,
         compare: COMPARE_EN,
-        luckyWheel: LUCKYWHEEL_EN,
+        luckyWheel: "",
     },
     vi: {
         signin: SIGNIN_VI,
@@ -79,7 +75,7 @@ export const resources = {
         productCart: PRODUCTCARD_VI,
         order: ORDER_VI,
         compare: COMPARE_VI,
-        luckyWheel: LUCKYWHEEL_VI,
+        luckyWheel: "",
     },
 };
 
