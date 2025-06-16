@@ -145,14 +145,19 @@ const Header = () => {
             {category.subCategories && category.subCategories.length > 0 ? (
               category.subCategories.map((sub) => (
                 <Menu.Item
-                  key={sub._id}
-                  onClick={() => navigate(`/all-products?subcategory=${sub._id}`)}
+                  key={sub.id}
+                  onClick={() => navigate(`/all-products?subcategory=${sub.id}`)}
                 >
                   {sub.name}
                 </Menu.Item>
               ))
             ) : (
-              <Menu.Item disabled>{t("No subcategories")}</Menu.Item>
+              <Menu.Item
+                key={category._id}
+                onClick={() => navigate(`/all-products?category=${category._id}`)}
+              >
+                {t("All")} {category.name}
+              </Menu.Item>
             )}
           </Menu.SubMenu>
         ))
