@@ -4,8 +4,8 @@ import {
   getAllOrder,
   getAllUser,
   assignSalerToOrder,
-} from "../../service/admin/AdminServices";
-import { getProductById } from "../../service/client/ApiProduct";
+} from "../../Service/admin/AdminServices";
+import { getProductById } from "../../Service/client/ApiProduct";
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);

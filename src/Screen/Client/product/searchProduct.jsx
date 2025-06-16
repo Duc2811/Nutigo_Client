@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Header from "../../layout/Header";
 import AppFooter from "../../layout/Footer";
 import ProductCard from "../../../Component/ProductCard";
-import { searchProducts } from "../../../service/client/ApiProduct";
+import { searchProducts } from "../../../Service/client/ApiProduct";
 import { useNavigate } from "react-router-dom";
 // import BottomAds from "../../../Component/BottomAds"
 // import LeftAdsBanner from "../../../Component/LeftAds";

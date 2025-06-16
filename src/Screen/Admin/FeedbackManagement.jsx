@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import {
   getAllFeedback,
   toggleFeedbackVisibility,
-} from "../../service/admin/AdminServices";
+} from "../../Service/admin/AdminServices";
 import { SearchOutlined } from "@ant-design/icons";
 
 const { confirm } = Modal;

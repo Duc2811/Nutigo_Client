@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import {
   getAllOrder,
   getAllUser,
-} from "../../service/admin/AdminServices";
-import { getProductById } from "../../service/client/ApiProduct";
+} from "../../Service/admin/AdminServices";
+import { getProductById } from "../../Service/client/ApiProduct";
 import { DeleteOutlined } from "@ant-design/icons";
 import { acceptOrder, cancelOrder, completeOrder } from "../../Service/shipper/ApiShipper";
 

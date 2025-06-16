@@ -13,7 +13,7 @@ import {
   Input,
   Tabs,
 } from "antd";
-import { getProductById } from "../../../service/client/ApiProduct";
+import { getProductById } from "../../../Service/client/ApiProduct";
 import {
   addFeedback,
   getFeedbackByProductId,
