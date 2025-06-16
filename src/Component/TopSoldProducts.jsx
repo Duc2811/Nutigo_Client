@@ -4,7 +4,7 @@ import { Typography } from "antd";
 import { StarOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom"; // Thêm useNavigate
 import ProductCard from "./ProductCard";
-import { getTopSold } from "../Service/client/ApiProduct";
+import { getTopSold } from "../Service/Client/ApiProduct";
 import { useTranslation } from "react-i18next";
 const { Title } = Typography;
 

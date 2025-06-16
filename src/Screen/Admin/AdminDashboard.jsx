@@ -13,7 +13,7 @@ import {
   getAllUser,
   getAllOrder,
   getAllFeedback,
-} from "../../Service/admin/AdminServices";
+} from "../../Service/Admin/AdminServices";
 import { Pie } from "@ant-design/charts";
 
 const AdminDashboard = () => {

@@ -5,7 +5,7 @@ import {
   deleteUser,
   changeRole,
   changeStatus,
-} from "../../Service/admin/AdminServices";
+} from "../../Service/Admin/AdminServices";
 import { SearchOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
