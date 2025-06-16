@@ -12,7 +12,7 @@ import {
 } from "@ant-design/icons";
 
 import ButtonAntd from "../../Component/Button";
-import { doLogout, doDarkMode } from "../../store/reducer/userReducer";
+import { doLogout, doDarkMode } from "../../Store/reducer/userReducer";
 
 const DEFAULT_LOGO = "/L.png";
 const Header = () => {

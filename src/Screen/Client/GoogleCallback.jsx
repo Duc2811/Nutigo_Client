@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { doLogin } from '../../store/reducer/userReducer';
+import { doLogin } from '../../Store/reducer/userReducer';
 import { message } from 'antd';
 
 const GoogleCallback = () => {

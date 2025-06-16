@@ -1,7 +1,7 @@
 import { Row, Col, Card, Typography, Spin, Button } from "antd";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../store/reducer/cartReducer";
+import { addToCart } from "../Store/reducer/cartReducer";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";

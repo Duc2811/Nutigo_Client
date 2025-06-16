@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { userLogin } from "../../Service/Client/ApiServices";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { doLogin } from "../../store/reducer/userReducer";
+import { doLogin } from "../../Store/reducer/userReducer";
 import { Form, Button, Container, Row, Col, Card, InputGroup } from "react-bootstrap";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 import { useSpring, animated } from "react-spring";

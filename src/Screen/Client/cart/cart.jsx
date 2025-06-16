@@ -4,7 +4,7 @@ import {
   clearCart,
   increaseQuantity,
   decreaseQuantity,
-} from "../../../store/reducer/cartReducer";
+} from "../../../Store/reducer/cartReducer";
 import {
   Layout,
   List,

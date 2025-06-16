@@ -24,7 +24,7 @@ import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import { ShoppingCartOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../../store/reducer/cartReducer";
+import { addToCart } from "../../../Store/reducer/cartReducer";
 // import BottomAds from "../../../Component/BottomAds"
 // import LeftAdsBanner from "../../../Component/LeftAds";
 // import RightAdsBanner from "../../../Component/RightAds";

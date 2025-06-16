@@ -10,7 +10,7 @@ import {
 } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { doLogout, doDarkMode } from "../../store/reducer/userReducer";
+import { doLogout, doDarkMode } from "../../Store/reducer/userReducer";
 
 const { Header, Sider, Content } = Layout;
 

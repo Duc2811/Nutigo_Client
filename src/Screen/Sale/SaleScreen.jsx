@@ -4,7 +4,7 @@ import { Button, Input, Table, Select, message, Spin } from "antd";
 import { Container, Row, Col, Navbar, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { doLogout } from "../../store/reducer/userReducer";
+import { doLogout } from "../../Store/reducer/userReducer";
 import SaleOrderManagement from "./SaleOrderManagement";
 import SaleDashboard from "./SaleDashboard";
 

@@ -31,7 +31,7 @@ import { getAllCategory } from "../../Service/Client/ApiProduct";
 
 import ButtonAntd from "../../Component/Button";
 import InputSearch from "../../component/InputSearch";
-import { doLogout, doDarkMode } from "../../store/reducer/userReducer";
+import { doLogout, doDarkMode } from "../../Store/reducer/userReducer";
 import { toast } from "react-toastify";
 
 const DEFAULT_LOGO = "/NutiGo.png";
