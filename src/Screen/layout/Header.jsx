@@ -30,7 +30,7 @@ import {
 import { getAllCategory } from "../../Service/Client/ApiProduct";
 
 import ButtonAntd from "../../Component/Button";
-import InputSearch from "../../component/InputSearch";
+import InputSearch from "../../Component/InputSearch";
 import { doLogout, doDarkMode } from "../../Store/reducer/userReducer";
 import { toast } from "react-toastify";
 
