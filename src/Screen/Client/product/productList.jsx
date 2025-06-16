@@ -66,7 +66,9 @@ const ProductList = () => {
     const fetchCategories = async () => {
       try {
         const response = await getAllCategory();
-        if (response && Array.isArray(response.categories)) {
+        if (Array.isArray(response)) {
+          setCategories(response);
+        } else if (response && Array.isArray(response.categories)) {
           setCategories(response.categories);
         } else {
           console.error("Invalid categories data:", response);
