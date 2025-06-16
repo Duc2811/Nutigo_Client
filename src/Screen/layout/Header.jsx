@@ -65,8 +65,8 @@ const Header = () => {
       try {
         setIsLoading(true);
         const response = await getAllCategory();
-        if (response && response.success && Array.isArray(response.categories)) {
-          setCategories(response.categories);
+        if (Array.isArray(response)) {
+          setCategories(response);
         } else {
           console.error("Invalid response format:", response);
           setCategories([]);
