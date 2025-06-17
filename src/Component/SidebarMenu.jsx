@@ -21,8 +21,12 @@ const SidebarMenu = () => {
     const fetchCategories = async () => {
       try {
         const response = await getAllCategory();
-        if (response && Array.isArray(response.categories)) {
+        // Handle new data structure
+        if (response && response.categories && Array.isArray(response.categories)) {
           setCategories(response.categories);
+        } else if (Array.isArray(response)) {
+          // Fallback for old structure
+          setCategories(response);
         } else {
           setCategories([]);
         }
@@ -53,7 +57,7 @@ const SidebarMenu = () => {
               children:
                 subCategories.length > 0
                   ? subCategories.map((sub, index) => {
-                      const subId = sub._id || sub.id || `tmp-${index}`;
+                      const subId = sub.id || sub._id || `tmp-${index}`;
                       return {
                         key: subId,
                         label: (
@@ -85,7 +89,7 @@ const SidebarMenu = () => {
     let selectedSubcategory = null;
     for (const category of categories) {
       selectedSubcategory = category.subCategories.find(
-        (sub) => (sub._id || sub.id) === selectedSubcategoryId
+        (sub) => (sub.id || sub._id) === selectedSubcategoryId
       );
       if (selectedSubcategory) break;
     }

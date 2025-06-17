@@ -2,7 +2,12 @@ import axios from "../../utils/CustomizeApi";
 
 export const getAllCategory = async () => {
     const response = await axios.get('category/getAllCategory');
-    return response.data.categories;
+    // Handle new data structure with categories array and totalPage
+    if (response.data && response.data.categories) {
+        return response.data;
+    }
+    // Fallback for old structure
+    return { categories: response.data.categories || [], totalPage: 1 };
 };
 
 export const getAllSubCategory = async (categoryId) => {
