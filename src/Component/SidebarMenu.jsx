@@ -21,8 +21,10 @@ const SidebarMenu = () => {
     const fetchCategories = async () => {
       try {
         const response = await getAllCategory();
+        console.log("API Response:", response); // Debug log
         // Handle new data structure
         if (response && response.categories && Array.isArray(response.categories)) {
+          console.log("Setting categories:", response.categories); // Debug log
           setCategories(response.categories);
         } else if (Array.isArray(response)) {
           // Fallback for old structure
@@ -30,7 +32,8 @@ const SidebarMenu = () => {
         } else {
           setCategories([]);
         }
-      } catch {
+      } catch (error) {
+        console.error("Error fetching categories:", error); // Debug log
         setCategories([]);
       }
     };
@@ -42,6 +45,7 @@ const SidebarMenu = () => {
       ? categories
           .map((category) => {
             const subCategories = category.subCategories || [];
+            console.log(`Category: ${category.name}, SubCategories:`, subCategories); // Debug log
             return {
               key: category._id,
               label: (
@@ -81,24 +85,37 @@ const SidebarMenu = () => {
                   : null,
             };
           })
-          .filter((item) => item.children)
       : [{ key: "no-data", label: "Không có danh mục", disabled: true }];
 
   const handleMenuClick = (e) => {
-    const selectedSubcategoryId = e.key;
+    const selectedKey = e.key;
+    
+    // Check if it's a subcategory click
     let selectedSubcategory = null;
     for (const category of categories) {
-      selectedSubcategory = category.subCategories.find(
-        (sub) => (sub.id || sub._id) === selectedSubcategoryId
+      selectedSubcategory = category.subCategories?.find(
+        (sub) => (sub.id || sub._id) === selectedKey
       );
       if (selectedSubcategory) break;
     }
+    
     if (selectedSubcategory) {
+      // Handle subcategory click
       const slug = createSlug(selectedSubcategory.name || "unnamed-subcategory");
       navigate(`/product-list/${slug}`, {
-        state: { subcategoryId: selectedSubcategoryId },
+        state: { subcategoryId: selectedKey },
         replace: true,
       });
+    } else {
+      // Handle category click (if category has no subcategories)
+      const selectedCategory = categories.find(cat => cat._id === selectedKey);
+      if (selectedCategory && (!selectedCategory.subCategories || selectedCategory.subCategories.length === 0)) {
+        const slug = createSlug(selectedCategory.name || "unnamed-category");
+        navigate(`/product-list/${slug}`, {
+          state: { categoryId: selectedKey },
+          replace: true,
+        });
+      }
     }
   };
 
