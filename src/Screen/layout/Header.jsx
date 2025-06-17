@@ -65,7 +65,14 @@ const Header = () => {
       try {
         setIsLoading(true);
         const response = await getAllCategory();
-        if (Array.isArray(response)) {
+        console.log("Header API Response:", response); // Debug log
+        
+        // Handle new data structure with categories array and totalPage
+        if (response && response.categories && Array.isArray(response.categories)) {
+          console.log("Setting categories in Header:", response.categories); // Debug log
+          setCategories(response.categories);
+        } else if (Array.isArray(response)) {
+          // Fallback for old structure
           setCategories(response);
         } else {
           console.error("Invalid response format:", response);
@@ -136,31 +143,37 @@ const Header = () => {
       ) : categories.length === 0 ? (
         <Menu.Item disabled>{t("No categories available")}</Menu.Item>
       ) : (
-        categories.map((category) => (
-          <Menu.SubMenu
-            key={category._id}
-            title={category.name}
-            icon={<ShopOutlined />}
-          >
-            {category.subCategories && category.subCategories.length > 0 ? (
-              category.subCategories.map((sub) => (
+        categories.map((category) => {
+          console.log(`Processing category: ${category.name}`, category); // Debug log
+          return (
+            <Menu.SubMenu
+              key={category._id}
+              title={category.name}
+              icon={<ShopOutlined />}
+            >
+              {category.subCategories && category.subCategories.length > 0 ? (
+                category.subCategories.map((sub) => {
+                  console.log(`Processing subcategory: ${sub.name}`, sub); // Debug log
+                  return (
+                    <Menu.Item
+                      key={sub.id || sub._id}
+                      onClick={() => navigate(`/all-products?subcategory=${sub.id || sub._id}`)}
+                    >
+                      {sub.name}
+                    </Menu.Item>
+                  );
+                })
+              ) : (
                 <Menu.Item
-                  key={sub.id}
-                  onClick={() => navigate(`/all-products?subcategory=${sub.id}`)}
+                  key={category._id}
+                  onClick={() => navigate(`/all-products?category=${category._id}`)}
                 >
-                  {sub.name}
+                  {t("All")} {category.name}
                 </Menu.Item>
-              ))
-            ) : (
-              <Menu.Item
-                key={category._id}
-                onClick={() => navigate(`/all-products?category=${category._id}`)}
-              >
-                {t("All")} {category.name}
-              </Menu.Item>
-            )}
-          </Menu.SubMenu>
-        ))
+              )}
+            </Menu.SubMenu>
+          );
+        })
       )}
     </Menu>
   );

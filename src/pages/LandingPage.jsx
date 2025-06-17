@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Button, Typography, Row, Col, Card } from "antd";
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import {
   ArrowRightOutlined,
   SafetyCertificateOutlined,
@@ -48,6 +49,16 @@ AnimatedSection.propTypes = {
 };
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate('/home');
+  };
+
+  const handleShopNow = () => {
+    navigate('/home');
+  };
+
   return (
     <>
       <Header />
@@ -101,6 +112,7 @@ const LandingPage = () => {
                     type="primary"
                     size="large"
                     icon={<ArrowRightOutlined />}
+                    onClick={handleGetStarted}
                   >
                     Get Started
                   </Button>
@@ -234,8 +246,8 @@ const LandingPage = () => {
                     Cùng hàng ngàn khách hàng tin tưởng, bắt đầu hành trình mua
                     sắm tuyệt vời ngay hôm nay!
                   </Paragraph>
-                  <Button type="primary" size="large" ghost>
-                    Đăng ký ngay
+                  <Button type="primary" size="large" ghost onClick={handleShopNow}>
+                    Mua sắm ngay
                   </Button>
                 </Col>
               </Row>
