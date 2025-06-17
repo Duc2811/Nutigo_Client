@@ -4,7 +4,7 @@ import { GoogleOutlined } from '@ant-design/icons';
 const GoogleLoginButton = () => {
     const handleGoogleLogin = () => {
         // Chuyển hướng đến endpoint Google OAuth
-        window.location.href = 'http://localhost:3000/api/user/auth/google';
+        window.location.href = 'https://api.nutigo.id.vn/api/user/auth/google';
     };
 
     return (
